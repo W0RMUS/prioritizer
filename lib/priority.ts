@@ -1,7 +1,7 @@
 import type { Task } from "./types";
 
-export const IMPORTANCE_WEIGHT = 0.7;
-export const URGENCY_WEIGHT = 0.3;
+const IMPORTANCE_WEIGHT = 0.7;
+const URGENCY_WEIGHT = 0.3;
 
 /**
  * WSJF-style priority: weighted value divided by effort.

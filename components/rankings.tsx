@@ -2,7 +2,7 @@ import { TaskCard } from "./task-card";
 import { sortByPriorityScore } from "@/lib/priority";
 import type { Task } from "@/lib/types";
 
-export function EmptyState({ message }: { message: string }) {
+function EmptyState({ message }: { message: string }) {
   return (
     <div className="flex flex-col items-center justify-center gap-2 rounded-xl border border-dashed border-zinc-300 px-4 py-10 text-center dark:border-zinc-700">
       <svg

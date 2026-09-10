@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Prioritizer
+
+A local task prioritization app. Tasks are ranked by value per unit of effort:
+
+```
+Score = (Importance × 0.7 + Urgency × 0.3) ÷ Effort
+```
+
+All inputs are on a 1–5 scale. Data persists to `tasks.json` in the project root.
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Enter a task name.
+2. Set **Urgency** (blue), **Importance** (orange), and **Effort** (green) on their 1–5 button groups.
+3. Add the task — it appears ranked in the **Priority Ranking** list (highest score first).
+4. Edit a task with the pencil icon; delete with the trash icon.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command         | Description                  |
+| --------------- | ---------------------------- |
+| `npm run dev`   | Start the development server |
+| `npm run build` | Production build             |
+| `npm run start` | Run the production build     |
+| `npm run lint`  | Lint the codebase            |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [docs/architecture.md](docs/architecture.md) — stack, structure, and data flow
+- [docs/scoring.md](docs/scoring.md) — the priority formula and rationale
+- [docs/data-storage.md](docs/data-storage.md) — `tasks.json` format and persistence

@@ -2,7 +2,7 @@
 
 import { addTask } from "@/app/actions";
 import { TaskForm } from "./task-form";
-import type { TaskDraft } from "@/lib/draft";
+import type { TaskDraft } from "@/lib/types";
 
 export function AddTaskCard() {
   const handleSubmit = async (draft: TaskDraft) => {

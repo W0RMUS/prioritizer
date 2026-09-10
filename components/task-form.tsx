@@ -2,8 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { ScaleButtonGroup } from "./scale-button-group";
-import type { TaskDraft } from "@/lib/draft";
-import type { Task } from "@/lib/types";
+import type { Task, TaskDraft } from "@/lib/types";
 
 interface TaskFormProps {
   initial?: Task;
