@@ -12,7 +12,7 @@ interface ScaleButtonGroupProps {
   label: string;
   value: number;
   onChange: (value: number) => void;
-  accent?: "indigo" | "emerald" | "zinc";
+  accent?: "indigo" | "emerald" | "blue" | "orange" | "zinc";
   disabled?: boolean;
 }
 
@@ -24,6 +24,14 @@ const ACCENT_CLASSES: Record<string, { active: string; ring: string }> = {
   emerald: {
     active: "bg-emerald-600 text-white border-emerald-600",
     ring: "focus-visible:ring-emerald-400",
+  },
+  blue: {
+    active: "bg-blue-600 text-white border-blue-600",
+    ring: "focus-visible:ring-blue-400",
+  },
+  orange: {
+    active: "bg-orange-600 text-white border-orange-600",
+    ring: "focus-visible:ring-orange-400",
   },
   zinc: {
     active: "bg-zinc-900 text-white border-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-100",

@@ -76,32 +76,33 @@ export function TaskForm({
         />
       </div>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="flex flex-col gap-5">
         <ScaleButtonGroup
           label="Urgency"
           value={urgency}
           onChange={setUrgency}
+          accent="blue"
           disabled={isPending}
         />
         <ScaleButtonGroup
           label="Importance"
           value={importance}
           onChange={setImportance}
+          accent="orange"
           disabled={isPending}
         />
-      </div>
-
-      <div>
-        <ScaleButtonGroup
-          label="Effort"
-          value={effort}
-          onChange={setEffort}
-          accent="emerald"
-          disabled={isPending}
-        />
-        <p className="mt-1.5 text-xs text-zinc-400 dark:text-zinc-500">
-          1 = trivial, 5 = very large
-        </p>
+        <div>
+          <ScaleButtonGroup
+            label="Effort"
+            value={effort}
+            onChange={setEffort}
+            accent="emerald"
+            disabled={isPending}
+          />
+          <p className="mt-1.5 text-xs text-zinc-400 dark:text-zinc-500">
+            1 = trivial, 5 = very large
+          </p>
+        </div>
       </div>
 
       {error && (

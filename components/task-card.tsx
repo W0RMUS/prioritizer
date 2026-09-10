@@ -84,9 +84,9 @@ export function TaskCard({ task }: { task: Task }) {
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-1.5">
-        <StatBadge label="U" value={task.urgency} />
-        <StatBadge label="I" value={task.importance} />
-        <StatBadge label="E" value={task.effort} accent />
+        <StatBadge label="U" value={task.urgency} color="blue" />
+        <StatBadge label="I" value={task.importance} color="orange" />
+        <StatBadge label="E" value={task.effort} color="emerald" />
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-zinc-100 pt-3 dark:border-zinc-800">
@@ -101,19 +101,21 @@ export function TaskCard({ task }: { task: Task }) {
 function StatBadge({
   label,
   value,
-  accent = false,
+  color,
 }: {
   label: string;
   value: number;
-  accent?: boolean;
+  color: "blue" | "orange" | "emerald";
 }) {
+  const colors = {
+    blue: "bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300",
+    orange: "bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300",
+    emerald:
+      "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
+  };
   return (
     <span
-      className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium ${
-        accent
-          ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
-          : "bg-zinc-100 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"
-      }`}
+      className={`inline-flex items-center gap-1 rounded-md px-2 py-1 text-xs font-medium ${colors[color]}`}
     >
       <span className="opacity-60">{label}</span>
       {value}
