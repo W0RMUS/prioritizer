@@ -1,12 +1,12 @@
 "use client";
 
-import { addTask } from "@/app/actions";
+import { addTask } from "@/app/task-actions";
 import { TaskForm } from "./task-form";
 import type { TaskDraft } from "@/lib/types";
 
-export function AddTaskCard() {
+export function AddTaskCard({ projectId }: { projectId: string }) {
   const handleSubmit = async (draft: TaskDraft) => {
-    await addTask(draft);
+    await addTask(projectId, draft);
   };
 
   return (
