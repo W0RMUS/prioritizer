@@ -9,7 +9,15 @@ import {
   type Task,
 } from "./types";
 
-const DATA_FILE = path.join(process.cwd(), "tasks.json");
+/**
+ * Resolved lazily (not at import time) so TASKS_DATA_FILE set at runtime —
+ * e.g. by the systemd unit or in tests — is always honored.
+ */
+function dataFile(): string {
+  return process.env.TASKS_DATA_FILE
+    ? path.resolve(process.env.TASKS_DATA_FILE)
+    : path.join(process.cwd(), "tasks.json");
+}
 
 /** Neutral default for legacy tasks saved before effort became mandatory. */
 const LEGACY_EFFORT = 3;
@@ -27,7 +35,7 @@ function clamp(value: number): number {
  */
 export async function readStore(): Promise<Store> {
   try {
-    const raw = await fs.readFile(DATA_FILE, "utf-8");
+    const raw = await fs.readFile(dataFile(), "utf-8");
     const parsed: unknown = JSON.parse(raw);
     if (Array.isArray(parsed)) {
       // Legacy flat task array: migrate and persist the new format once.
@@ -42,7 +50,7 @@ export async function readStore(): Promise<Store> {
 }
 
 export async function writeStore(store: Store): Promise<void> {
-  await fs.writeFile(DATA_FILE, JSON.stringify(store, null, 2), "utf-8");
+  await fs.writeFile(dataFile(), JSON.stringify(store, null, 2), "utf-8");
 }
 
 export async function readProjects(): Promise<Project[]> {

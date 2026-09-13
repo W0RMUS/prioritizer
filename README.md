@@ -3,7 +3,7 @@
 A local task prioritization app. Tasks are ranked by value per unit of effort:
 
 ```
-Score = (Importance × 0.7 + Urgency × 0.3) ÷ Effort
+Score = (Importance × 0.7 + Urgency × 0.3) ÷ √Effort
 ```
 
 All inputs are on a 1–5 scale. Data persists to `tasks.json` in the project root.

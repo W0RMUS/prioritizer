@@ -29,7 +29,7 @@ function EmptyState({ message }: { message: string }) {
 export function PriorityRanking({ tasks }: { tasks: Task[] }) {
   if (tasks.length === 0) {
     return (
-      <EmptyState message="No tasks yet. Add one above — it will be ranked by (Importance × 0.7 + Urgency × 0.3) ÷ Effort." />
+      <EmptyState message="No tasks yet. Add one above — it will be ranked by (Importance × 0.7 + Urgency × 0.3) ÷ √Effort." />
     );
   }
 

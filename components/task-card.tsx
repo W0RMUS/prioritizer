@@ -41,7 +41,7 @@ export function TaskCard({ task }: { task: Task }) {
   return (
     <div className="group rounded-xl border border-zinc-200 bg-white p-4 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-900">
       <div className="flex items-start justify-between gap-3">
-        <h3 className="min-w-0 break-words text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+        <h3 className="min-w-0 wrap-break-word text-sm font-semibold text-zinc-900 dark:text-zinc-100">
           {task.name}
         </h3>
         <div className="flex shrink-0 gap-1">
@@ -109,7 +109,8 @@ function StatBadge({
 }) {
   const colors = {
     blue: "bg-blue-50 text-blue-700 dark:bg-blue-950 dark:text-blue-300",
-    orange: "bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300",
+    orange:
+      "bg-orange-50 text-orange-700 dark:bg-orange-950 dark:text-orange-300",
     emerald:
       "bg-emerald-50 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
   };
